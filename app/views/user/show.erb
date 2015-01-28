@@ -1,10 +1,7 @@
 <div id="user-info">
-
   <h2> <%= @user.name %> </h2>
-
   <h2> Team Name: <%= @user.team.name %> </h2>
   <h2> Joined League: <%= @user.team.created_at %> </h2>
-
 <a href="/user/<%= @user.id %>/edit" >Edit Info </a>
 
 </div>

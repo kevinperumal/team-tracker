@@ -1,4 +1,5 @@
 get '/' do
+
   @teams = Team.all
   erb :welcome
 end

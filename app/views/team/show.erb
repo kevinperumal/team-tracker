@@ -1,0 +1,6 @@
+<div id="team-info">
+  <h4> <%= @team.name %> </h4>
+  <h4> Owner: <%= User.find(@team.user_id).name %> </h4>
+  <h4> Joined League: <%= @team.created_at %> </h4>
+<a href="/team/<%= @team.id %>/edit" >Edit Info </a>
+</div>
