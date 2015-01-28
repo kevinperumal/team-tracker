@@ -1,0 +1,18 @@
+
+<div id="welcome-table">
+
+  <table>
+    <tr>
+      <th>Team Name</th>
+      <th>Owner </th>
+    </tr>
+
+    <% @teams.each do |team| %>
+    <tr>
+      <td> <%= team.name  %> </td>
+      <td> <%= team.owner %> </td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>
