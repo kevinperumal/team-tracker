@@ -1,0 +1,9 @@
+<div id="user-info">
+
+  <h2> <%= User.find(params[:id]).name %> </h2>
+  <h2> Team Name: <%= @team.name %> </h2>
+  <h2> Joined League: <%= @team.created_at %> </h2>
+
+<a href="/user/<%= params[:id] %>/edit" >Edit Info </a>
+
+</div>
