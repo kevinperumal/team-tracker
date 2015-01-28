@@ -6,6 +6,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :position
       t.integer :average
       t.references :team
+      t.timestamps
 
     end
   end
