@@ -23,6 +23,8 @@ end
 
 get '/team/:id/edit' do |id|
   @team = Team.find(id)
+  @available = Player.get_available_players
+  # @unavaliable = Player.unavailable_players
   erb :'/team/edit'
 
 end
