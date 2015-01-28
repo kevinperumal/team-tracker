@@ -35,3 +35,9 @@ put '/team/:id/edit' do |id|
   redirect "/team/#{id}"
 
 end
+
+delete '/team/:id' do |id|
+  Team.find(id).destroy
+  redirect "/"
+
+end

@@ -4,4 +4,9 @@
     Team Name: <input type="text" name="team[name]" value= "<%= @team.name %>"><br>
     <input type="submit" value="Update"><br>
   </form>
+
+<form action="/team/<%= @team.id %>" method="POST" class="user-form">
+  <input type="hidden" name="_method" value="DELETE">
+   <input type="submit" value="Delete">
+</form>
 </div>
