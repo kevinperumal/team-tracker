@@ -1,3 +1,8 @@
+.user-form input {
+    width: 100%;
+    clear: both;
+}
+
 body {
     font-family: monospace;
     font-size: 160%;
