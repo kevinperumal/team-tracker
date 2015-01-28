@@ -3,6 +3,10 @@
     clear: both;
 }
 
+#error_bar {
+   color: red;
+}
+
 body {
     font-family: monospace;
     font-size: 160%;

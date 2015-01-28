@@ -1,19 +1,18 @@
+
 <div class="user-form">
-  <form action="/team/<%= @team.id%>/edit" method="POST">
+  <form action="/team/<%= @team.id %>/edit" method="POST">
     <input type="hidden" name="_method" value="PUT">
     Team Name: <input type="text" name="team[name]" value= "<%= @team.name %>"><br>
     <input type="submit" value="Update"><br>
   </form>
 
-    <table>
+  <table>
     <tr>
       <th>Player Name</th>
       <th>Position </th>
       <th>Point Average</th>
     </tr>
-
     <% @team.players.each do |player| %>
-
     <tr>
       <td> <%= player.name  %> </td>
       <td> <%= player.position  %> </td>

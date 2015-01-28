@@ -19,3 +19,16 @@ def current_user_has_team?
 
 end
 
+def add_errors(error_msg)
+  if session[:errors]
+    session[:errors] << error_msg
+  else
+    session[:errors] = [error_msg]
+  end
+end
+
+def display_errors
+  errors = session[:errors]
+  session[:errors] = nil
+  errors.join(", ") if errors
+end

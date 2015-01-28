@@ -9,7 +9,7 @@ post '/team/new' do
   if team.save
     redirect "/"
   else
-    #need to add errors here
+    add_errors("Problem saving your team")
     redirect "/"
   end
 
@@ -30,7 +30,6 @@ get '/team/:id/edit' do |id|
 end
 
 put '/team/:id/edit' do |id|
-
   @team = Team.find(id)
   @team.update(params[:team])
 
@@ -39,6 +38,12 @@ put '/team/:id/edit' do |id|
 end
 
 delete '/team/:id' do |id|
+  team = Team.find(id)
+
+  team.players.each do |player|
+    player.update(team_id: nil)
+  end
+
   Team.find(id).destroy
   redirect "/"
 

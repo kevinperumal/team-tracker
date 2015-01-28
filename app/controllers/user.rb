@@ -11,7 +11,6 @@ get '/user/:id/edit' do |id|
 end
 
 put '/user/:id/edit' do |id|
-
   @user = User.find(id)
   @user.update(params[:user])
 

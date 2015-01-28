@@ -1,7 +1,7 @@
 get '/' do
-
   @teams = Team.all
   erb :welcome
+
 end
 
 get '/login' do
@@ -16,14 +16,16 @@ post '/login' do
     redirect '/'
 
   else
-    #need to add errors
+    add_errors("Invalid Login Info")
     redirect '/login'
+
   end
 
 end
 
 get '/signup' do
   erb :'/signup'
+
 end
 
 post '/signup' do
@@ -32,10 +34,11 @@ post '/signup' do
   if user.save
     session[:user_id] = user.id
     redirect "/"
-  else
 
-    #need to add errors here
+  else
+    add_errors("Invalid Info")
     redirect "/login"
+
   end
 
 end
@@ -43,4 +46,5 @@ end
 get '/logout' do
   session[:user_id] = nil
   redirect '/'
+
 end
