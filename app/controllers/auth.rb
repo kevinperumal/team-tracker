@@ -22,7 +22,7 @@ post '/login' do
 end
 
 get '/signup' do
-  erb: '/signup'
+  erb :'/signup'
 end
 
 post '/signup' do
@@ -37,4 +37,9 @@ post '/signup' do
     redirect "/login"
   end
 
+end
+
+get '/logout' do
+  session[:user_id] = nil
+  redirect '/'
 end
