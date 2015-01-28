@@ -18,3 +18,4 @@ put '/user/:id/edit' do |id|
   redirect "/user/#{id}"
 
 end
+
