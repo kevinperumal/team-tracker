@@ -15,4 +15,10 @@
     <% end %>
   </table>
 
+
+  <% if !current_user_has_team? %>
+
+    <a href="/team/new"> Create a Team! </a>
+  <% end %>
+
 </div>
