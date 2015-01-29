@@ -3,7 +3,6 @@ $(document).ready(function() {
   $signup.hide();
 
   $('#signup-link').on("click", function(event) {
-    debugger
     event.preventDefault();
     $signup.show();
 
@@ -37,8 +36,7 @@ $(document).ready(function() {
 
 function error(err) {
 
-  console.log(err)
-  console.log("playing sad trombone sound");
+  $("#show-err").html("PROBLEM SAVING");
 }
 
 function addplayer(response) {

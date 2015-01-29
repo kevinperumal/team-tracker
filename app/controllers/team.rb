@@ -29,12 +29,14 @@ get '/team/:id/edit' do |id|
     if current_user.id == @team.user_id
     @available = Player.get_available_players
     @unavailable = Player.unavailable_players
+
      erb :'/team/edit'
     end
 
   else
+
     add_errors("You must be logged in to edit")
-    redirect '/'
+    redirect "/"
   end
 
 end
