@@ -9,13 +9,13 @@
     <% @teams.each do |team| %>
     <tr>
       <td> <a href="/team/<%=team.id %>"> <%= team.name  %> </td>
-      <td> <a href="/user/<%=team.user.id%>"> <%= team.owner  %> </td>
+      <td> <a href="/user/<%=team.user_id%>"> <%= team.owner %> </td>
     </tr>
     <% end %>
   </table>
 
 
-  <% if current_user && !current_user_has_team? %>
+  <% if current_user != nil && !current_user_has_team? %>
     <a href="/team/new"> Create a Team! </a>
 
   <% elsif current_user %>

@@ -7,7 +7,7 @@ class Team < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def owner
-    self.user.name
+      self.user.name
 
   end
 end

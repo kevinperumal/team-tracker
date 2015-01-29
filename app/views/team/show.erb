@@ -19,4 +19,6 @@
  </table>
 </div>
 
-<a href="/team/<%= @team.id %>/edit" >Edit Team </a>
+<% if ( (current_user != nil) && (current_user.id == User.find(@team.user_id).id) )%>
+<a href="/team/<%= @team.id %>/edit" >Edit Info </a>
+<% end %>

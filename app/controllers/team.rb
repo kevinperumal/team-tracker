@@ -4,7 +4,7 @@ end
 
 post '/team/new' do
 
-   team = Team.create(name: params[:team][:name], user_id: session[:user_id])
+  team = Team.create(name: params[:team][:name], user_id: session[:user_id])
 
   if team.save
     redirect "/"
@@ -22,10 +22,20 @@ get '/team/:id' do |id|
 end
 
 get '/team/:id/edit' do |id|
+
   @team = Team.find(id)
-  @available = Player.get_available_players
-  # @unavaliable = Player.unavailable_players
-  erb :'/team/edit'
+
+  if current_user
+    if current_user.id == @team.user_id
+    @available = Player.get_available_players
+    @unavailable = Player.unavailable_players
+     erb :'/team/edit'
+    end
+
+  else
+    add_errors("You must be logged in to edit")
+    redirect '/'
+  end
 
 end
 

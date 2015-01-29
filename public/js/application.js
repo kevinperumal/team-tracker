@@ -1,7 +1,52 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  var $signup = $('#signup')
+  $signup.hide();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+  $('#signup-link').on("click", function(event) {
+    debugger
+    event.preventDefault();
+    $signup.show();
+
+  }); // end signup click
+
+  var $player = $('#add_player')
+
+  $player.on("submit", function(event){
+    event.preventDefault();
+
+    // debugger
+    var url = $player.attr("action");
+    var type = $player.attr("method");
+    var data = $player.serialize();
+
+    var ajaxRequest = $.ajax({
+
+      type: type,
+      url: url,
+      data: data
+
+    }); // end ajax
+
+
+    ajaxRequest.done(addplayer);
+    ajaxRequest.fail(error);
+
+  }); //end player on
+
+}); // end document on ready
+
+function error(err) {
+
+  console.log(err)
+  console.log("playing sad trombone sound");
+}
+
+function addplayer(response) {
+  var player = JSON.parse(response)
+  var num = player.average.toString();
+
+  var html = "<tr> <td>" + player.name + "</td>" + "<td>" + player.position + "</td>" + "<td>" + num +"</td></tr>"
+
+
+  $('#my_table').append(html);
+}
