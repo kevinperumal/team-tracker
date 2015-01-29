@@ -45,6 +45,5 @@ function addplayer(response) {
 
   var html = "<tr> <td>" + player.name + "</td>" + "<td>" + player.position + "</td>" + "<td>" + num +"</td></tr>"
 
-
   $('#my_table').append(html);
 }

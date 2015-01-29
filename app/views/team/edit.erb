@@ -22,14 +22,14 @@
     <% end %>
   </table>
 
+
   <form id="add_player" action="/team/<%= @team.id %>/player" method="POST">
     <select name="player[id]"> <% @available.each do |player| %>
     <option value="<%=player.id %>"> <%= player.name %> <%= player.position %> <%= player.average %> </option>
     <% end %>
   </select>
-
   <input id="player_submit" type="submit" value="Add Player">
-</form>
+ </form>
 
   <form id="add_drop" action="/team/<%= @team.id %>/player" method="POST">
     <input type="hidden" name="_method" value="DELETE">
@@ -37,9 +37,9 @@
     <option value="<%=player.id %>"> <%= player.name %> <%= player.position %> <%= player.average %> </option>
     <% end %>
   </select>
-
   <input id="player_submit" type="submit" value="Drop Player">
-</form>
+  </form>
+
 
 <form action="/team/<%= @team.id %>" method="POST" class="user-form">
   <input type="hidden" name="_method" value="DELETE">
